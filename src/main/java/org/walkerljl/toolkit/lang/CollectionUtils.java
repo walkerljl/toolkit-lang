@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -302,5 +303,25 @@ public class CollectionUtils {
             index++;
         }
         return stringArray;
+    }
+
+    /**
+     * 将Collection对象转换成Set对象
+     *
+     * @param collection 需要转换的集合
+     * @param <T>
+     * @return
+     */
+    public static <T> Set<T> toSet(Collection<T> collection) {
+
+        if (collection == null || collection.isEmpty()) {
+            return null;
+        }
+
+        Set<T> resultSet = new HashSet<>(collection.size());
+        for (T item : collection) {
+            resultSet.add(item);
+        }
+        return resultSet;
     }
 }

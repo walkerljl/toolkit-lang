@@ -1,6 +1,7 @@
 package org.walkerljl.toolkit.lang;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
@@ -2869,6 +2870,31 @@ public final class StringUtils {
             }
         }
         return list;
+    }
+
+    /**
+     * Split to list
+     *
+     * @param str Input string
+     * @param regex Reqex
+     * @return
+     */
+    public static List<String> splitToList(String str, String regex) {
+
+        if (str == null || str.length() == 0) {
+            return null;
+        }
+
+        String[] itemArray = str.split(regex);
+        if (itemArray == null || itemArray.length == 0) {
+            return null;
+        }
+        List<String> resultList = new ArrayList<>(itemArray.length);
+        for (String item : itemArray) {
+            resultList.add(item);
+        }
+
+        return resultList;
     }
 
     /**
